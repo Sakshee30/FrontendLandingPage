@@ -151,7 +151,7 @@ function HowItWorks() {
             </article>
           ))}
         </div>
-        <div className="aspect-[595/755] w-full overflow-hidden rounded-[30px] bg-[#e5e5e3] shadow-[12px_12px_4px_rgba(0,0,0,.25)]">
+        <div className="aspect-[595/755] w-full max-w-[595px] justify-self-center overflow-hidden rounded-[30px] bg-[#e5e5e3] shadow-[12px_12px_4px_rgba(0,0,0,.25)]">
           <video
             src="/figma-assets/how-it-works.mp4"
             aria-label="How Ziplin works"
