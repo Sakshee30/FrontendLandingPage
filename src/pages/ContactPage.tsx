@@ -3,7 +3,6 @@ import { Building2, Check, Clock3, Mail, MapPin, MessageCircle, Phone, Send } fr
 import { useState, type FormEvent } from 'react';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { resourceMascotSources } from '@/data/figmaAssets';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
 import { CtaSection } from '@/components/sections/CtaSection';
@@ -21,9 +20,9 @@ export function ContactPage() {
   return (
     <PageTransition>
       <section className="border-b border-[#e8e8e8] bg-gradient-to-r from-[#f0f8ff] to-white">
-        <div className="site-container grid min-h-[588px] items-center gap-10 py-14 lg:grid-cols-[1.08fr_.92fr]">
+        <div className="mx-auto grid min-h-[588px] w-full max-w-[1252px] items-center gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,564px)_minmax(0,660px)] lg:gap-[22px] lg:px-0">
           <motion.div initial={{opacity:0,x:-60}} animate={{opacity:1,x:0}} transition={{duration:.5,ease:[.22,1,.36,1]}}><SectionEyebrow>CONTACT ZIPLIN SUPPORT</SectionEyebrow><h1 className="display-1 mt-7 max-w-[650px]">We are here to help you <span className="text-ziplin-yellow">connect better</span></h1><p className="mt-6 max-w-[640px] text-lg leading-8 text-[#545b6e] sm:text-xl">Have questions about branded links, enterprise solutions, or billing cycles? Our team of link optimization experts is ready to assist you. Drop us a message, check our locations, or access real-time support.</p></motion.div>
-          <motion.div initial={{opacity:0,x:1150,y:400,rotate:178}} animate={{opacity:1,x:0,y:0,rotate:0}} transition={{duration:.5,ease:'easeOut'}} className="h-[408px]"><img src={resourceMascotSources.contact} alt="Ziplin support mascot with phone and envelope" className="h-full w-full object-contain"/></motion.div>
+          <motion.div initial={{opacity:0,x:1150,y:400,rotate:178}} animate={{opacity:1,x:0,y:0,rotate:0}} transition={{duration:.5,ease:'easeOut'}} className="h-[450px]"><video src="/figma-assets/contact-hero-animation.mp4" aria-label="Animated Ziplin contact visual" className="h-full w-full bg-transparent object-contain mix-blend-multiply [filter:contrast(1.12)_brightness(1.08)]" autoPlay loop muted playsInline preload="auto"/></motion.div>
         </div>
       </section>
 

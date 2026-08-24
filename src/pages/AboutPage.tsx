@@ -3,7 +3,6 @@ import { BarChart3, HeartHandshake, Lightbulb, ShieldCheck, Users } from 'lucide
 import { PageTransition } from '@/components/ui/PageTransition';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { Reveal } from '@/components/ui/Reveal';
-import { resourceMascotSources } from '@/data/figmaAssets';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 
@@ -20,14 +19,14 @@ export function AboutPage() {
   return (
     <PageTransition>
       <section className="border-b border-[#e8e8e8] bg-gradient-to-r from-[#f0f8ff] to-white">
-        <div className="site-container grid min-h-[648px] items-center gap-12 py-16 lg:grid-cols-[1.2fr_1fr] lg:py-[90px]">
+        <div className="mx-auto grid min-h-[648px] w-full max-w-[1252px] items-center gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,564px)_minmax(0,607px)] lg:gap-[22px] lg:px-0 lg:py-[90px]">
           <motion.div initial={{opacity:0,x:-60}} animate={{opacity:1,x:0}} transition={{duration:.5,ease:[.22,1,.36,1]}}>
             <SectionEyebrow>OUR MISSION & STORY</SectionEyebrow>
             <p className="mt-7 text-xl leading-7 text-ziplin-blue">Building the infrastructure for connected link experiences</p>
             <p className="mt-7 text-lg leading-[1.45] text-[#474555] sm:text-xl">{mission}</p>
           </motion.div>
           <motion.div initial={{opacity:0,x:1150}} animate={{opacity:1,x:0}} transition={{duration:.5,ease:'easeOut'}} className="relative h-[408px] overflow-hidden rounded-[24px] bg-[#75aee0]">
-            <img src={resourceMascotSources.about} alt="Ziplin team mascots" className="h-full w-full object-cover" />
+            <video src="/figma-assets/about-hero-animation.mp4" aria-label="Animated Ziplin About visual" className="h-full w-full object-cover" autoPlay loop muted playsInline preload="auto" />
           </motion.div>
         </div>
       </section>

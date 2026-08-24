@@ -29,8 +29,49 @@ export function SiteFooter() {
       <div className="landing-footer-content relative mx-auto max-w-[1280px] px-8 py-12">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr] lg:items-start">
           <div>
-            <Link to="/" className="-ml-6 inline-flex">
-              <img src="/figma-assets/logo.png" alt="Ziplin" className="h-auto w-[180px] object-contain" />
+            <Link to="/" aria-label="Ziplin home" className="inline-flex items-center gap-0">
+              <span
+                aria-hidden="true"
+                className="h-[68px] w-[72px] shrink-0 -translate-y-1 bg-white"
+                style={{
+                  WebkitMaskImage: "url('/figma-assets/logo.png')",
+                  WebkitMaskPosition: '-47px -9px',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskSize: '350px auto',
+                  maskImage: "url('/figma-assets/logo.png')",
+                  maskPosition: '-47px -9px',
+                  maskRepeat: 'no-repeat',
+                  maskSize: '350px auto',
+                }}
+              />
+              <span aria-hidden="true" className="relative h-[58px] w-[110px] shrink-0 translate-y-[4px]">
+                <span
+                  className="absolute left-0 top-0 h-[36px] w-[110px] bg-ziplin-yellow"
+                  style={{
+                    WebkitMaskImage: "url('/figma-assets/logo.png')",
+                    WebkitMaskPosition: '-94px -13px',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskSize: '260px auto',
+                    maskImage: "url('/figma-assets/logo.png')",
+                    maskPosition: '-94px -13px',
+                    maskRepeat: 'no-repeat',
+                    maskSize: '260px auto',
+                  }}
+                />
+                <span
+                  className="absolute left-4 top-[42px] h-[11px] w-[76px] bg-white"
+                  style={{
+                    WebkitMaskImage: "url('/figma-assets/logo.png')",
+                    WebkitMaskPosition: '-109px -57px',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskSize: '260px auto',
+                    maskImage: "url('/figma-assets/logo.png')",
+                    maskPosition: '-109px -57px',
+                    maskRepeat: 'no-repeat',
+                    maskSize: '260px auto',
+                  }}
+                />
+              </span>
             </Link>
             <p className="mt-6 max-w-[312px] text-sm leading-6 text-[#c8d3e6]">
               Branded links, QR codes, campaigns, and analytics built for teams that need every click tracked.

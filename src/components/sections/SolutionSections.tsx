@@ -6,9 +6,19 @@ import { ButtonLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 
+const solutionHeroVideos: Partial<Record<SolutionDefinition['slug'], string>> = {
+  'affiliate-marketing': '/figma-assets/solution-hero-affiliate-marketing.mp4',
+  'content-creators': '/figma-assets/solution-hero-content-creators.mp4',
+  influencers: '/figma-assets/solution-hero-influencers.mp4',
+  'media-entertainment': '/figma-assets/solution-hero-media-entertainment.mp4',
+  ecommerce: '/figma-assets/solution-hero-ecommerce.mp4',
+  'digital-marketing': '/figma-assets/solution-hero-digital-marketing.mp4',
+};
+
 export function SolutionHero({ solution }: { solution: SolutionDefinition }) {
   const shortMotion = solution.slug === 'content-creators' || solution.slug === 'influencers';
   const duration = shortMotion ? 0.3 : 0.5;
+  const heroVideo = solutionHeroVideos[solution.slug];
   const visualClass = {
     'affiliate-marketing': 'h-[589px] max-w-[598px]',
     'content-creators': 'h-[600px] max-w-[598px]',
@@ -20,14 +30,27 @@ export function SolutionHero({ solution }: { solution: SolutionDefinition }) {
   return (
     <section className="figma-grid overflow-hidden bg-white">
       <div className="mx-auto w-full max-w-[1252px] px-6 py-10 sm:px-8 lg:px-0 lg:py-0">
-        <div className="grid min-h-[589px] items-center gap-8 lg:grid-cols-[584px_1fr]">
+        <div className="grid min-h-[589px] items-center gap-8 lg:grid-cols-[minmax(0,564px)_minmax(0,607px)] lg:gap-[22px]">
           <motion.div initial={{ opacity: 0, x: -520 }} animate={{ opacity: 1, x: 0 }} transition={{ duration, ease: 'easeOut' }}>
             <SectionEyebrow>{solution.eyebrow}</SectionEyebrow>
             <h1 className="mt-7 max-w-[584px] font-display text-[44px] leading-[1.24] text-ziplin-navy sm:text-[50px]">{solution.headline} <span className="text-ziplin-yellow">{solution.accent}</span></h1>
             <p className="mt-7 max-w-[584px] text-[20px] leading-[1.35] text-[#555e73]">{solution.description}</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: shortMotion ? 1320 : 1250, rotate: shortMotion ? 0 : 178 }} animate={{ opacity: 1, x: 0, rotate: 0 }} transition={{ duration, ease: 'easeOut' }} className={`relative mx-auto w-full [&>div]:hidden ${visualClass}`}>
-            <img src={solutionMascotSources[solution.slug as keyof typeof solutionMascotSources]} alt={`${solution.name} Ziplin mascot`} className="relative h-full w-full object-contain" />
+          <motion.div initial={{ opacity: 0, x: shortMotion ? 1320 : 1250, rotate: shortMotion ? 0 : 178 }} animate={{ opacity: 1, x: 0, rotate: 0 }} transition={{ duration, ease: 'easeOut' }} className={`relative ml-auto w-full [&>div]:hidden ${visualClass}`}>
+            {heroVideo ? (
+              <video
+                src={heroVideo}
+                aria-label={`${solution.name} animated solution visual`}
+                className="relative h-full w-full object-contain"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              />
+            ) : (
+              <img src={solutionMascotSources[solution.slug as keyof typeof solutionMascotSources]} alt={`${solution.name} Ziplin mascot`} className="relative h-full w-full object-contain" />
+            )}
             <motion.div animate={{ y: [0,-12,0], rotate: [-3,3,-3] }} transition={{ repeat: Infinity, duration: 4.4 }} className="absolute right-[4%] top-[8%] flex size-16 items-center justify-center rounded-2xl bg-[#ff4f87] text-3xl text-white shadow-soft">♥</motion.div>
           </motion.div>
         </div>

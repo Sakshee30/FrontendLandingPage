@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { BarChart3, Check, Link2, QrCode, Send, UploadCloud } from 'lucide-react';
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useState } from 'react';
 import type { FeatureDefinition } from '@/data/types';
-import { featureMascotSources } from '@/data/figmaAssets';
 import { ButtonLink } from '@/components/ui/Button';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 
@@ -10,75 +9,68 @@ type HeroVisual = {
   source: string;
   width: number;
   height: number;
-  imageStyle?: CSSProperties;
   eyebrow?: string;
   primaryCta?: string;
 };
 
 const featureHeroVisuals: Record<FeatureDefinition['slug'], HeroVisual> = {
   'url-shortener': {
-    source: featureMascotSources.urlShortener,
-    width: 588,
-    height: 588,
+    source: '/figma-assets/feature-hero-url-shortener.mp4',
+    width: 607,
+    height: 506,
   },
   'qr-code-generator': {
-    source: featureMascotSources.qrBarcodeSheet,
-    width: 571,
-    height: 499,
-    imageStyle: { width: '218.35%', height: '166.78%', left: 0, top: '-8.96%' },
+    source: '/figma-assets/feature-hero-qr-code.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'DYNAMIC QR CODE',
     primaryCta: 'Start for free',
   },
   '2d-barcode': {
-    source: featureMascotSources.qrBarcodeSheet,
+    source: '/figma-assets/feature-hero-2d-barcode.mp4',
     width: 607,
-    height: 530,
-    imageStyle: { width: '218.35%', height: '166.78%', left: '-118.42%', top: '-9.78%' },
+    height: 506,
     eyebrow: '2D BAR CODE',
     primaryCta: 'Start for free',
   },
   'bio-pages': {
-    source: featureMascotSources.featureSheet,
-    width: 541,
-    height: 526,
-    imageStyle: { width: '323.95%', height: '304.31%', left: '0.03%', top: '-160.96%' },
+    source: '/figma-assets/feature-hero-bio-pages.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'BIO PAGE',
     primaryCta: 'Claim your page',
   },
   'utm-tracking': {
-    source: featureMascotSources.featureSheet,
-    width: 495,
-    height: 676,
-    imageStyle: { width: '389.32%', height: '260.65%', left: '-145.96%', top: '-4.03%' },
+    source: '/figma-assets/feature-hero-utm-tracking.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'BRANDED LINK',
     primaryCta: 'Start for free',
   },
   'file-sharing': {
-    source: featureMascotSources.fileSharing,
-    width: 615,
-    height: 493,
+    source: '/figma-assets/feature-hero-file-sharing.mp4',
+    width: 660,
+    height: 371,
     primaryCta: 'Start sharing',
   },
   campaigns: {
-    source: featureMascotSources.featureSheet,
-    width: 573,
-    height: 454,
-    imageStyle: { width: '277.38%', height: '319.73%', left: 0, top: '-18.13%' },
+    source: '/figma-assets/feature-hero-campaigns.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'BRANDED LINK',
     primaryCta: 'Start for free',
   },
   webhooks: {
-    source: featureMascotSources.featureSheet,
-    width: 562,
-    height: 547,
-    imageStyle: { width: '323.95%', height: '304.31%', left: '-211.95%', top: '-22.18%' },
+    source: '/figma-assets/feature-hero-webhooks.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'BRANDED LINK',
     primaryCta: 'Start for free',
   },
   retargeting: {
-    source: featureMascotSources.retargeting,
-    width: 747,
-    height: 498,
+    source: '/figma-assets/feature-hero-retargeting.mp4',
+    width: 607,
+    height: 506,
     eyebrow: 'RETARGETING PIXELS',
     primaryCta: 'Start for free',
   },
@@ -110,11 +102,12 @@ function FeatureHeroTitle({ feature }: { feature: FeatureDefinition }) {
 export function FeatureHero({ feature }: { feature: FeatureDefinition }) {
   const visual = featureHeroVisuals[feature.slug];
   const isShortener = feature.slug === 'url-shortener';
+  const isFileSharing = feature.slug === 'file-sharing';
 
   return (
     <section className="figma-grid relative overflow-hidden bg-white">
-      <div className={isShortener ? 'mx-auto w-full max-w-[1184px] px-5 py-12 sm:px-8 sm:py-14 lg:pb-[70px] lg:pt-[51px]' : 'site-container py-12 sm:py-14 lg:pb-[70px] lg:pt-[51px]'}>
-        <div className={`grid items-center ${isShortener ? 'gap-8 lg:min-h-[588px] lg:grid-cols-[minmax(0,564px)_minmax(0,534px)] lg:gap-[22px]' : 'gap-10 lg:grid-cols-[604px_minmax(0,1fr)]'}`}>
+      <div className="mx-auto w-full max-w-[1252px] px-5 py-12 sm:px-8 sm:py-14 lg:px-0 lg:pb-[70px] lg:pt-[51px]">
+        <div className={`grid items-center gap-8 lg:min-h-[588px] lg:gap-[22px] ${isFileSharing ? 'lg:grid-cols-[minmax(0,564px)_minmax(0,660px)]' : 'lg:grid-cols-[minmax(0,564px)_minmax(0,607px)]'}`}>
           <motion.div
             key={`${feature.slug}-copy`}
             initial={{ opacity: 0, x: -560 }}
@@ -142,29 +135,20 @@ export function FeatureHero({ feature }: { feature: FeatureDefinition }) {
             initial={{ opacity: 0, x: '85vw', y: '65vh', rotate: 180 }}
             animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
             transition={heroEnter}
-            className="relative mx-auto w-full self-center"
-            style={{ maxWidth: isShortener ? 534 : visual.width }}
+            className="relative ml-auto w-full self-center"
+            style={{ maxWidth: visual.width }}
           >
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: `${visual.width} / ${visual.height}` }}>
-              {isShortener ? (
-                <video
-                  src="/figma-assets/url-shortener-custom-animation.mp4"
-                  aria-label={`${feature.name} animated Ziplin mascot`}
-                  className="absolute inset-0 size-full bg-transparent object-contain mix-blend-multiply [filter:contrast(1.18)_brightness(1.12)]"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                />
-              ) : (
-                <img
-                  src={visual.source}
-                  alt={`${feature.name} Ziplin mascot`}
-                  className={visual.imageStyle ? 'absolute max-w-none' : 'absolute inset-0 size-full object-cover'}
-                  style={visual.imageStyle}
-                />
-              )}
+              <video
+                src={visual.source}
+                aria-label={`${feature.name} animated feature visual`}
+                className={`absolute inset-0 size-full bg-transparent mix-blend-multiply [filter:contrast(1.18)_brightness(1.12)] ${isFileSharing ? 'object-contain' : 'object-cover'}`}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              />
             </div>
           </motion.div>
         </div>

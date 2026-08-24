@@ -14,7 +14,7 @@ export const solutionDefinitions: SolutionDefinition[] = [
     workflow: [{ title: 'Create', description: 'Generate branded short links in seconds.' }, { title: 'Customize', description: 'Add domains, aliases, and campaign parameters.' }, { title: 'Analyze', description: 'Understand clicks, conversions, and revenue.' }, { title: 'Optimize', description: 'Improve performance with data and experiments.' }],
   },
   {
-    slug: 'content-creators', route: '/solutions/content-creators', name: 'Content Creators', eyebrow: 'INFLUENCER',
+    slug: 'content-creators', route: '/solutions/content-creators', name: 'Content Creators', eyebrow: 'CONTENT CREATORS',
     headline: 'Understand Your Audience.', accent: 'Grow Your Influence',
     description: 'Create branded links, track audience engagement, and optimize your content and collaborations with real-time insights.',
     sectionHeading: 'Share your content. grow your audience.', sectionSubheading: 'Take Your Content Further With Smarter Digital Experiences',
@@ -50,7 +50,7 @@ export const solutionDefinitions: SolutionDefinition[] = [
     workflow: [{ title: 'Design', description: 'Create a destination that reflects your brand.' }, { title: 'Publish', description: 'Share one smart link everywhere.' }, { title: 'Measure', description: 'Understand audience behavior.' }, { title: 'Grow', description: 'Turn audiences into customers and partners.' }],
   },
   {
-    slug: 'ecommerce', route: '/solutions/ecommerce', name: 'E-commerce', eyebrow: 'AFFILIATE MARKETING',
+    slug: 'ecommerce', route: '/solutions/ecommerce', name: 'E-commerce', eyebrow: 'E-COMMERCE',
     headline: 'Turn every viewer into a loyal fan with smarter', accent: 'digital experience',
     description: 'Engage your audience across every channel with branded links, dynamic QR Codes, and powerful analytics that turn every interaction into lasting fan engagement.',
     sectionHeading: 'Transform the Way You Manage Links', sectionSubheading: 'Empower Your Store with Smarter Digital Commerce',

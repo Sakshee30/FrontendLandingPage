@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { resourceMascotSources } from '@/data/figmaAssets';
 import { Reveal } from '@/components/ui/Reveal';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -30,7 +29,7 @@ export function HelpCenterPage() {
   return (
     <PageTransition>
       <section className="figma-grid border-b border-[#e8e8e8] bg-white">
-        <div className="site-container grid min-h-[709px] items-center gap-8 py-14 lg:grid-cols-[.82fr_1.18fr]">
+        <div className="mx-auto grid min-h-[709px] w-full max-w-[1252px] items-center gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,564px)_minmax(0,607px)] lg:gap-[22px] lg:px-0">
           <motion.div initial={{ opacity: 0, x: -520 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }}>
             <SectionEyebrow>HELP CENTER</SectionEyebrow>
             <h1 className="display-1 mt-8">How Can We Help <span className="text-ziplin-yellow">You?</span></h1>
@@ -48,8 +47,17 @@ export function HelpCenterPage() {
               ))}
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 1150 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }} className="relative flex min-h-[420px] items-center justify-center lg:h-[516px]">
-            <img src={resourceMascotSources.help} alt="Ziplin mascot pointing to the Help Center" className="h-auto max-h-full w-full max-w-[650px] rounded-[24px] object-contain shadow-[0_24px_80px_rgba(8,28,69,.12)]" />
+          <motion.div initial={{ opacity: 0, x: 1150 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }} className="relative flex min-h-[420px] items-center justify-center lg:h-[568px]">
+            <video
+              src="/figma-assets/help-center-hero-animation.mp4"
+              aria-label="Animated Ziplin Help Center visual"
+              className="h-full max-h-[568px] w-full max-w-[650px] bg-transparent object-contain mix-blend-multiply [filter:contrast(1.12)_brightness(1.08)]"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            />
           </motion.div>
         </div>
       </section>

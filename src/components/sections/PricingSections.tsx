@@ -22,14 +22,23 @@ const plans = [
 export function PricingHero() {
   return (
     <section className="figma-grid overflow-hidden bg-white">
-      <div className="site-container grid min-h-[440px] items-center gap-8 py-12 lg:grid-cols-[1fr_520px] lg:py-0">
+      <div className="mx-auto grid min-h-[440px] w-full max-w-[1252px] items-center gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,564px)_minmax(0,607px)] lg:gap-[22px] lg:px-0 lg:py-0">
         <motion.div initial={{ opacity: 0, x: -415 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }}>
           <SectionEyebrow>PRICING PLANS</SectionEyebrow>
           <h1 className="display-1 mt-7 max-w-[640px]">Simple, transparent <span className="text-ziplin-yellow">pricing structure</span></h1>
           <p className="mt-5 max-w-[396px] text-[20px] leading-[1.35] text-[#111]">Start free. Upgrade when you need more links, branding controls, team seats, or API limits. No hidden fees, ever.</p>
         </motion.div>
-        <motion.div initial={{ opacity: 0, x: 415 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }} className="relative mx-auto h-[434px] w-[447px] max-w-full overflow-hidden">
-          <img src="/figma-assets/feature-mascot-sheet.png" alt="Ziplin mascot beside the pricing plan board" className="absolute left-[-487px] top-[-699px] h-[1321px] w-[1448px] max-w-none" />
+        <motion.div initial={{ opacity: 0, x: 415 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }} className="relative ml-auto h-[434px] w-full max-w-[607px] overflow-hidden">
+          <video
+            src="/figma-assets/pricing-hero-animation.mp4"
+            aria-label="Animated Ziplin pricing visual"
+            className="absolute inset-0 size-full object-contain"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          />
         </motion.div>
       </div>
     </section>

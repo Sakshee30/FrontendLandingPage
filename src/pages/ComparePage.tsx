@@ -59,9 +59,11 @@ const matrixRows: MatrixRow[] = [
   { label: 'Bio pages', note: 'Landing page builder, no extra tool', values: [true, true, false, true, true] },
   { label: 'File sharing links', values: [true, false, false, false, false] },
   { label: 'Retargeting pixels on redirect', note: 'Meta, Google, LinkedIn, X', values: [true, true, false, true, true] },
+  { section: 'Analytics' },
   { label: 'Click history retained', values: ['Unlimited', '2 years', '6 months', '1 year', '1 year'] },
   { label: 'UTM builder and campaign rollup', values: [true, true, true, true, true] },
   { label: 'Conversion tracking', note: 'Clicks through to signups and sales', values: [true, true, false, true, true] },
+  { section: 'Team, plan and support' },
   { label: 'Seats on the entry paid plan', values: ['10', 'limited', 'limited', '1–5+', '1+'] },
   { label: 'Free plan that keeps your links live', values: [true, true, true, true, true] },
 ];
@@ -86,22 +88,22 @@ const faqs = [
 
 function MatrixValue({ value }: { value: MatrixCell }) {
   if (value === true) {
-    return <span className="mx-auto flex size-7 items-center justify-center rounded-full bg-[#e9f8ef] text-[#079447]" aria-label="Included"><Check className="size-4" strokeWidth={2.6} /></span>;
+    return <span className="mx-auto flex size-7 items-center justify-center rounded-full bg-white text-[#079447] shadow-sm" aria-label="Included"><Check className="size-4" strokeWidth={2.8} /></span>;
   }
 
   if (value === false) {
-    return <span className="mx-auto block text-lg text-[#a5adbb]" aria-label="Not available">—</span>;
+    return <span className="mx-auto flex size-7 items-center justify-center rounded-full bg-white text-[#e5484d] shadow-sm" aria-label="Not available"><Minus className="size-4" strokeWidth={2.8} /></span>;
   }
 
   if (value === 'limited') {
-    return <span className="font-semibold text-[#7c8596]">~</span>;
+    return <span className="mx-auto flex size-7 items-center justify-center rounded-full bg-white font-bold text-ziplin-navy shadow-sm">~</span>;
   }
 
   if (typeof value === 'object') {
     return <><strong className="block">{value.value}</strong>{value.note ? <small className="mt-1 block text-xs text-[#7c8596]">{value.note}</small> : null}</>;
   }
 
-  return <span className="font-semibold text-ziplin-navy">{value}</span>;
+  return <span className="font-semibold text-white">{value}</span>;
 }
 
 export function ComparePage() {
@@ -112,16 +114,25 @@ export function ComparePage() {
     <PageTransition>
       <section className="figma-grid relative overflow-hidden border-b border-[#e5e9f0] bg-white py-12 sm:py-16 lg:py-10">
         <div className="pointer-events-none absolute -right-20 -top-24 size-[420px] rounded-full bg-[#fff5d3] opacity-70 blur-3xl" />
-        <div className="site-container grid min-h-[570px] items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,.72fr)] lg:gap-16">
+        <div className="site-container grid min-h-[570px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,516px)] lg:gap-12">
           <motion.div initial={{ opacity: 0, x: -80 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .65, ease: [.22, 1, .36, 1] }} className="relative z-10 text-left">
             <SectionEyebrow>COMPARISON</SectionEyebrow>
             <h1 className="display-1 mt-7 max-w-[760px] text-ziplin-navy">Every link tool promises short links. <span className="text-ziplin-yellow">Then what?</span></h1>
             <p className="mt-6 max-w-[650px] text-lg leading-8 text-[#66718a]">We put Ziplin side by side with other websites — same features, same plans, no asterisks. Read the table, then decide for yourself.</p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 110, rotate: 7 }} animate={{ opacity: 1, x: 0, rotate: 0 }} transition={{ duration: .72, delay: .08, ease: [.22, 1, .36, 1] }} className="relative mx-auto flex h-[470px] w-full max-w-[430px] items-center justify-center">
-            <motion.div animate={{ y: [0, -12, 0], rotate: [0, 1.2, 0] }} transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut' }} className="relative z-10 size-[430px]">
-              <img src="/figma-assets/feature-url-shortener.png" alt="Ziplin mascot breaking a chain" className="size-full object-contain" />
+          <motion.div initial={{ opacity: 0, x: 110, rotate: 7 }} animate={{ opacity: 1, x: 0, rotate: 0 }} transition={{ duration: .72, delay: .08, ease: [.22, 1, .36, 1] }} className="relative mx-auto flex h-[470px] w-full max-w-[516px] items-center justify-center mix-blend-multiply">
+            <motion.div animate={{ y: [0, -12, 0], rotate: [0, 1.2, 0] }} transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut' }} className="relative z-10 aspect-video w-full">
+              <video
+                src="/figma-assets/comparison-hero-animation.mp4"
+                aria-label="Animated Ziplin comparison mascot"
+                className="size-full bg-transparent object-contain [filter:contrast(1.15)_brightness(1.25)]"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -195,45 +206,50 @@ export function ComparePage() {
         </div>
       </section>
 
-      <section className="bg-[#f7faff] py-20 sm:py-28">
-        <div className="site-container">
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-8">
           <Reveal className="text-center">
             <SectionEyebrow>FEATURE MATRIX</SectionEyebrow>
-            <h2 className="display-2 mt-6 text-ziplin-navy">Everything compared, <span className="text-ziplin-yellow">in one table</span></h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-base leading-7 text-[#68738a]">Based on each provider&apos;s entry-level paid plan for a five-person team.</p>
+            <h2 className="mt-5 font-display text-[32px] leading-tight text-ziplin-navy sm:text-[42px]">Everything compared, <span className="text-ziplin-yellow">in one table</span></h2>
+            <p className="mx-auto mt-4 max-w-[700px] text-sm leading-6 text-[#7a8597]">Based on each provider&apos;s entry-level paid plan for a five-person team.</p>
           </Reveal>
 
-          <Reveal delay={.08} className="mt-12 overflow-hidden rounded-[24px] border border-[#dce3ed] bg-white shadow-[0_18px_55px_rgba(8,28,69,.09)]">
+          <Reveal delay={.08} className="mt-10 overflow-hidden rounded-md border border-[#dce3ed] bg-white shadow-[0_12px_35px_rgba(8,28,69,.08)]">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[1040px] border-collapse text-left">
                 <thead>
-                  <tr className="bg-ziplin-navy text-white">
-                    {['Feature', 'Ziplin', 'Bitly', 'TinyURL', 'Rebrandly', 'Short.io'].map((heading, index) => <th key={heading} className={`px-6 py-5 text-sm font-semibold ${index === 0 ? 'w-[32%] text-left' : 'text-center'} ${index === 1 ? 'bg-ziplin-yellow text-ziplin-navy' : ''}`}>{heading}</th>)}
+                  <tr>
+                    {['Feature', 'Ziplin', 'Bitly', 'TinyURL', 'Rebrandly', 'Short.io'].map((heading, index) => {
+                      const headingTone = ['bg-ziplin-navy', 'bg-[#18aeb4]', 'bg-[#86c868]', 'bg-[#ef5c62]', 'bg-[#18aeb4]', 'bg-[#86c868]'][index];
+                      return (
+                        <th key={heading} className={`${headingTone} px-4 py-5 text-center ${index === 0 ? 'w-[31%]' : 'w-[13.8%]'}`}>
+                          <span className="inline-flex min-w-[82px] justify-center rounded-sm bg-white px-3 py-1.5 text-xs font-bold text-ziplin-navy shadow-sm">{heading}</span>
+                        </th>
+                      );
+                    })}
                   </tr>
                 </thead>
                 <tbody>
-                  {matrixRows.map((row, rowIndex) => {
+                  {matrixRows.map((row) => {
                     if ('section' in row) {
-                      return <tr key={row.section}><th colSpan={6} className="border-y border-[#dde4ee] bg-[#edf3fc] px-6 py-4 font-display text-lg text-ziplin-navy">{row.section}</th></tr>;
+                      return <tr key={row.section}><th colSpan={6} className="border-y-[14px] border-white bg-[#f3f6fa] px-5 py-2 text-xs font-semibold text-ziplin-navy">{row.section}</th></tr>;
                     }
 
                     return (
-                      <motion.tr key={row.label} initial="rest" whileHover="hover" className={rowIndex % 2 ? 'bg-[#fbfcff]' : 'bg-white'}>
-                        <motion.th variants={{ rest: { x: 0 }, hover: { x: 4 } }} transition={{ duration: .18 }} className="border-t border-[#e5eaf1] px-6 py-5 text-sm font-semibold text-ziplin-navy">
+                      <motion.tr key={row.label} initial="rest" whileHover="hover">
+                        <motion.th variants={{ rest: { x: 0 }, hover: { x: 3 } }} transition={{ duration: .18 }} className="border-t border-white/20 bg-ziplin-navy px-5 py-3.5 text-xs font-semibold text-white">
                           {row.label}
-                          {row.note ? <span className="mt-1 block text-xs font-normal leading-5 text-[#7a8597]">{row.note}</span> : null}
+                          {row.note ? <span className="mt-1 block text-[11px] font-normal leading-4 text-[#b9cff2]">{row.note}</span> : null}
                         </motion.th>
-                        {row.values.map((value, valueIndex) => <td key={valueIndex} className={`border-t border-[#e5eaf1] px-5 py-5 text-center text-sm transition-colors duration-200 ${valueIndex === 0 ? 'bg-[#fff8dd] group-hover:bg-[#fff3bf]' : ''}`}><MatrixValue value={value} /></td>)}
+                        {row.values.map((value, valueIndex) => {
+                          const cellTone = ['bg-[#18aeb4]', 'bg-[#86c868]', 'bg-[#ef5c62]', 'bg-[#18aeb4]', 'bg-[#86c868]'][valueIndex];
+                          return <td key={valueIndex} className={`${cellTone} border-t border-white/30 px-4 py-3.5 text-center text-xs text-white transition-[filter] hover:brightness-105`}><MatrixValue value={value} /></td>;
+                        })}
                       </motion.tr>
                     );
                   })}
                 </tbody>
               </table>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-[#e3e8f0] bg-white px-6 py-5 text-xs text-[#697487]">
-              <span className="inline-flex items-center gap-2"><Check className="size-4 text-[#079447]" /> Included</span>
-              <span className="inline-flex items-center gap-2"><strong className="text-base">~</strong> Limited, or costs extra</span>
-              <span className="inline-flex items-center gap-2"><strong className="text-base">—</strong> Not available</span>
             </div>
           </Reveal>
         </div>
