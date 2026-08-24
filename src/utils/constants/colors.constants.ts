@@ -1,0 +1,15 @@
+﻿export const enum TOKEN_COLOR {
+  PRIMARY = "#081C45",
+  PRIMARY_DARK = "#0E2F73",
+  PRIMARY_LIGHT = "#164BB7",
+  PRIMARY_BG = "rgba(8,28,69,0.07)",
+  PRIMARY_BG_DARK = "rgba(8,28,69,0.2)",
+  SUCCESS = "#10b981",
+  DANGER = "#ef4444",
+  WARNING = "#F4B400",
+  BORDER = "#E2E8F0",
+  TEXT = "#1C252E",
+  MUTED = "#637381",
+  FAINT = "#94A3B8",
+}
+

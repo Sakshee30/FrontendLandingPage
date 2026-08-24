@@ -1,0 +1,289 @@
+@theme {
+  --color-ziplin-navy: #081c45;
+  --color-ziplin-ink: #001845;
+  --color-ziplin-blue: #0e2f73;
+  --color-ziplin-royal: #164bb7;
+  --color-ziplin-yellow: #f4b400;
+  --color-ziplin-sun: #ffc60a;
+  --color-ziplin-cream: #fffcf0;
+  --color-ziplin-lilac: #f5f3ff;
+  --color-ziplin-mint: #f0fdf4;
+  --font-display: "Publica Play", "Trebuchet MS", "Avenir Next", sans-serif;
+  --font-body: "HuluStyle", "Avenir Next", Manrope, Inter, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --shadow-figma: 0 2px 2px rgba(0,0,0,.2), 0 4px 2.5px rgba(0,0,0,.14), 0 1px 5px rgba(0,0,0,.12);
+  --shadow-hard: 8px 8px 0 #0a0e1a;
+  --shadow-hardYellow: 12px 12px 0 #f4b400;
+  --shadow-soft: 0 18px 60px rgba(8,28,69,.12);
+}
+
+/*
+  The Figma file uses licensed HuluStyle and Publica Play typefaces.
+  Font files are intentionally not bundled. Place licensed files in public/fonts
+  using the names below to activate the exact typography; otherwise the declared
+  system fallbacks keep the layout stable.
+*/
+@font-face {
+  font-family: 'HuluStyle';
+  src: local('HuluStyle');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Publica Play';
+  src: local('Publica Play');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color: #081c45;
+  background: #ffffff;
+  font-family: 'HuluStyle', 'Avenir Next', Manrope, Inter, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ziplin-navy: #081c45;
+  --ziplin-blue: #0e2f73;
+  --ziplin-royal: #164bb7;
+  --ziplin-yellow: #f4b400;
+  --ziplin-sun: #ffc60a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #ffffff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #081c45;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(244, 180, 0, 0.52);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #081c45;
+  background: #ffe8a6;
+}
+
+img {
+  display: block;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Publica Play', 'Trebuchet MS', 'Avenir Next', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-20;
+  }
+
+  .figma-grid {
+    background-image:
+      linear-gradient(rgba(14, 47, 115, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 47, 115, 0.055) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .figma-grid-fine {
+    background-image:
+      linear-gradient(rgba(14, 47, 115, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 47, 115, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .hard-card {
+    border: 2px solid #0a0e1a;
+    box-shadow: 8px 8px 0 #0a0e1a;
+  }
+
+  .hard-card-yellow {
+    border: 2px solid #0a0e1a;
+    box-shadow: 12px 12px 0 #f4b400;
+  }
+
+  .eyebrow-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-normal text-[#001845] shadow-figma;
+  }
+
+  .eyebrow-pill::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #f4b400;
+    box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.12);
+  }
+
+  .display-1 {
+    @apply font-display text-[42px] leading-[1.13] tracking-[-0.035em] sm:text-[48px] sm:leading-[60px];
+  }
+
+  .display-2 {
+    @apply font-display text-[34px] leading-[1.16] tracking-[-0.03em] sm:text-[44px] sm:leading-[1.2] lg:text-[48px] lg:leading-[60px];
+  }
+
+  .body-1 {
+    @apply font-body text-[18px] leading-[1.45] sm:text-[20px] sm:leading-[27px];
+  }
+
+  .body-2 {
+    @apply font-body text-[16px] leading-6;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .asset-placeholder {
+    background:
+      radial-gradient(circle at 28% 28%, rgba(255, 198, 10, 0.92), rgba(255, 198, 10, 0.12) 20%, transparent 42%),
+      radial-gradient(circle at 70% 38%, rgba(22, 75, 183, 0.48), transparent 38%),
+      linear-gradient(135deg, #eaf2ff, #f8fbff 48%, #fff7da);
+  }
+
+  .screen-card {
+    @apply overflow-hidden rounded-[22px] border-2 border-[#0a0e1a] bg-[#fffcf0] shadow-hardYellow;
+  }
+}
+
+/* Shared Figma layout: 80% desktop width with spacing on the 8px grid. */
+.landing-nav-shell,
+.landing-page > section:not(#landing-hero),
+.landing-page .landing-footer-content {
+  width: 80%;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.landing-page > section:not(#landing-hero) {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+@media (max-width: 767px) {
+  .landing-nav-shell,
+  .landing-page > section:not(#landing-hero),
+  .landing-page .landing-footer-content {
+    width: calc(100% - 32px);
+  }
+
+  .landing-page > section:not(#landing-hero),
+  .landing-page .landing-footer-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* FEATURE CAROUSEL START */
+.feature-video-carousel {
+  touch-action: pan-y;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-video-carousel button {
+    transition: none !important;
+  }
+}
+/* FEATURE CAROUSEL END */
+
+@layer components {
+  .prose-ziplinn h2 {
+    @apply mt-12 font-display text-[32px] leading-tight text-ziplin-navy sm:text-[38px];
+  }
+
+  .prose-ziplinn h3 {
+    @apply mt-8 font-display text-2xl text-ziplin-navy;
+  }
+
+  .prose-ziplinn p {
+    @apply mt-5;
+  }
+
+  .prose-ziplinn ul {
+    @apply my-7 space-y-3 pl-6;
+  }
+
+  .prose-ziplinn li {
+    @apply list-disc pl-1 marker:text-ziplin-yellow;
+  }
+
+  .prose-ziplinn blockquote {
+    @apply my-10 rounded-[18px] border-l-4 border-ziplin-yellow bg-[#fff9e9] p-7 font-display text-2xl leading-9 text-ziplin-navy;
+  }
+
+  .prose-ziplinn blockquote svg {
+    @apply mb-4 size-7 text-ziplin-yellow;
+  }
+}
+
+@media (max-width: 639px) {
+  .display-1,
+  .display-2 {
+    overflow-wrap: anywhere;
+  }
+}
