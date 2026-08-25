@@ -7,7 +7,7 @@ const featureSlides = [
     name: 'Link Shortener',
     title: 'LINK SHORTENER',
     description: 'Create clean, memorable links and track every click in real time.',
-    video: '/figma-assets/feature-hero-url-shortener.mp4',
+    video: '/figma-assets/feature-link-shortener-20260825.mp4',
     to: '/features/url-shortener',
     cta: 'Own Your Link',
   },
@@ -15,7 +15,7 @@ const featureSlides = [
     name: 'UTM Tracking',
     title: 'UTM TRACKING',
     description: 'Build consistent campaign links and understand which channels drive results.',
-    video: '/figma-assets/feature-utm-tracking-20260824-v3.mp4',
+    video: '/figma-assets/feature-utm-tracking-20260825.mp4',
     to: '/features/utm-tracking',
     cta: "Let's Analyze",
   },
@@ -23,7 +23,7 @@ const featureSlides = [
     name: 'QR Code Generator',
     title: 'QR CODE GENERATOR',
     description: 'Create dynamic QR codes you can update, customize, and measure anytime.',
-    video: '/figma-assets/feature-qr-generator-hq.mp4',
+    video: '/figma-assets/feature-qr-generator-20260825.mp4',
     to: '/features/qr-code-generator',
     cta: 'Launch Your QR',
   },
@@ -31,7 +31,7 @@ const featureSlides = [
     name: '2D Barcode',
     title: '2D BAR CODE',
     description: 'Connect products and packaging to rich, trackable digital experiences.',
-    video: '/figma-assets/feature-2d-barcode-hq.mp4',
+    video: '/figma-assets/feature-2d-barcode-20260825-v3.mp4',
     to: '/features/2d-barcode',
     cta: 'Code It Up',
   },
@@ -39,7 +39,7 @@ const featureSlides = [
     name: 'File Sharing',
     title: 'FILE SHARING',
     description: 'Share large files securely through branded links with complete control.',
-    video: '/figma-assets/feature-file-sharing-hq.mp4',
+    video: '/figma-assets/feature-file-sharing-20260825-v2.mp4',
     to: '/features/file-sharing',
     cta: 'Share the Magic',
   },
@@ -114,7 +114,11 @@ export function FeatureVideoCarousel() {
 
         <div
           className="relative z-10 flex min-h-[330px] w-full flex-col justify-center bg-transparent px-7 pb-24 pt-12 shadow-none backdrop-blur-0 sm:absolute sm:inset-y-0 sm:left-0 sm:min-h-0 sm:w-[43%] sm:px-[5.5%] sm:pb-[8%] sm:pt-[5%]"
-          style={{ background: 'transparent', backdropFilter: 'none' }}
+          style={{
+            background: 'transparent',
+            backdropFilter: 'none',
+            transform: slide.name === 'UTM Tracking' || slide.name === '2D Barcode' ? 'translateY(13%)' : 'translateY(16%)',
+          }}
         >
           <p className="font-mono text-[11px] font-bold uppercase tracking-[.14em] text-[#ffc60a] sm:text-[13px]">ZIPLIN FEATURES</p>
           <h1 className="mt-4 max-w-[430px] font-display text-[38px] leading-[1.02] text-white sm:text-[clamp(34px,4vw,64px)]">
