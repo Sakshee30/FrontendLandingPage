@@ -1,1 +1,0 @@
-import{c as t}from"./index-w4ALdmAF.js";async function o(){return(await t.get("/qr")).qrCodes??[]}async function d(a){return(await t.post("/qr",a)).qrCode}async function s(a,e){return(await t.put(`/qr/${a}`,e)).qrCode}async function c(a){await t.delete(`/qr/${a}`)}export{d as c,c as d,o as l,s as u};
