@@ -30,7 +30,7 @@ export function PricingHero() {
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 415 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, ease: 'easeOut' }} className="relative ml-auto h-[434px] w-full max-w-[607px] overflow-hidden">
           <video
-            src="/figma-assets/pricing-hero-animation.mp4"
+            src="/figma-assets/pricing-hero-animation-inr-v2.mp4"
             aria-label="Animated Ziplin pricing visual"
             className="absolute inset-0 size-full object-contain"
             autoPlay
