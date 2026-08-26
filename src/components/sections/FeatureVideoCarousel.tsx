@@ -7,7 +7,7 @@ const featureSlides = [
     name: 'Link Shortener',
     title: 'LINK SHORTENER',
     description: 'Create clean, memorable links and track every click in real time.',
-    video: '/figma-assets/feature-link-shortener-20260825.mp4',
+    video: '/figma-assets/feature-link-shortener-20260826-v5.mp4',
     to: '/features/url-shortener',
     cta: 'Own Your Link',
   },

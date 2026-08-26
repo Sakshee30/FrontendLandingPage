@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { FaqSection } from '@/components/sections/FaqSection';
@@ -93,6 +94,12 @@ function IntegrationStrip() {
 }
 
 function DashboardSection() {
+  const [activeDemo, setActiveDemo] = useState<'dashboard' | 'links' | 'qr'>('dashboard');
+  const showingDashboard = activeDemo === 'dashboard';
+  const showingLinks = activeDemo === 'links';
+  const demoAsset = showingDashboard ? 'dashboard-demo-v3.png' : showingLinks ? 'links-dashboard-demo-v2.png' : 'qr-dashboard-demo-v3.png';
+  const demoAlt = showingDashboard ? 'Ziplin dashboard' : showingLinks ? 'Ziplin links management dashboard' : 'Ziplin QR code management dashboard';
+
   return (
     <section className="relative mx-auto min-h-[936px] max-w-[1280px] overflow-hidden bg-[linear-gradient(180deg,#e7e9eb_0%,#a8cff1_100%)] px-8 pt-24" style={{ clipPath: 'polygon(6% 0,94% 0,100% 7%,100% 93%,94% 100%,6% 100%,0 93%,0 7%)' }}>
       <h2 className="mx-auto max-w-[768px] text-center font-display text-[38px] leading-tight text-ziplin-blue sm:text-[48px] sm:leading-[60px]">
@@ -100,8 +107,16 @@ function DashboardSection() {
       </h2>
       <img src={asset('analytics-glow.svg')} alt="" className="pointer-events-none absolute -left-36 top-48 size-[485px] opacity-75" />
       <img src={asset('analytics-glow.svg')} alt="" className="pointer-events-none absolute -right-36 bottom-20 size-[485px] opacity-75" />
-      <div className="relative mx-auto mt-16 aspect-[912/608] w-full max-w-[912px] overflow-hidden rounded-[24px] border border-[#052b67]/75">
-        <img src={asset('links-dashboard.png')} alt="Ziplin links management dashboard" className="absolute left-0 top-[-6.18%] h-[106.2%] w-full object-cover" />
+      <div className="relative mx-auto mt-16 aspect-[912/608] w-full max-w-[912px] overflow-hidden rounded-[24px] border border-[#052b67]/75 bg-[#f5f8fc]">
+        <img
+          key={activeDemo}
+          src={asset(demoAsset)}
+          alt={demoAlt}
+          className="absolute left-0 top-0 size-full object-contain object-left"
+        />
+        <button type="button" onClick={() => setActiveDemo('dashboard')} aria-label="Show Dashboard demo" aria-pressed={showingDashboard} className="absolute left-[1.8%] top-[11.5%] z-10 h-[6.2%] w-[15%] cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ziplin-yellow" />
+        <button type="button" onClick={() => setActiveDemo('links')} aria-label="Show Links demo" aria-pressed={showingLinks} className="absolute left-[1.8%] top-[18.1%] z-10 h-[5.7%] w-[15%] cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ziplin-yellow" />
+        <button type="button" onClick={() => setActiveDemo('qr')} aria-label="Show QR Codes demo" aria-pressed={activeDemo === 'qr'} className="absolute left-[1.8%] top-[24.3%] z-10 h-[5.7%] w-[15%] cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ziplin-yellow" />
       </div>
     </section>
   );
