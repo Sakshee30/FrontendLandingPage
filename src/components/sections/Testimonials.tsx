@@ -37,7 +37,7 @@ export function Testimonials() {
   const reviewRail = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-14 overflow-hidden bg-white px-8 py-20 xl:flex-row xl:items-center xl:justify-between xl:gap-14 xl:pb-0 xl:pt-28">
+    <section id="testimonials" className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-14 bg-white px-8 py-20 xl:flex-row xl:items-center xl:justify-between xl:gap-14 xl:pb-0 xl:pt-28">
       <style>{`
         @keyframes ziplin-testimonial-scroll {
           from { transform: translateY(0); }
@@ -51,6 +51,7 @@ export function Testimonials() {
         #testimonials .testimonial-review-rail:hover {
           animation-play-state: paused;
         }
+
       `}</style>
       <div className="flex w-full max-w-[668px] shrink-0 flex-col gap-[72px] xl:w-[668px]">
         <div className="w-full p-2">
@@ -63,11 +64,11 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="relative h-[376px] w-full max-w-[668px] shrink-0 overflow-hidden">
+        <div className="relative h-[506px] w-full max-w-[607px] shrink-0 self-center">
           <video
-            src="/figma-assets/testimonial-mascot-animation.mp4"
+            src="/figma-assets/testimonial-mascot-animation-safe.mp4"
             aria-label="Animated Ziplin testimonial mascot"
-            className="absolute inset-0 size-full bg-transparent object-contain mix-blend-multiply [filter:contrast(1.2)_brightness(1.18)]"
+            className="relative h-full w-full bg-transparent object-contain mix-blend-multiply [filter:contrast(1.2)_brightness(1.18)]"
             autoPlay
             loop
             muted

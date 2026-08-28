@@ -140,11 +140,11 @@ export function FeatureHero({ feature }: { feature: FeatureDefinition }) {
             className="relative ml-auto w-full self-center"
             style={{ maxWidth: visual.width }}
           >
-            <div className="relative w-full overflow-hidden" style={{ aspectRatio: `${visual.width} / ${visual.height}` }}>
+            <div className="relative w-full" style={{ aspectRatio: `${visual.width} / ${visual.height}` }}>
               <video
                 src={visual.source}
                 aria-label={`${feature.name} animated feature visual`}
-                className={`absolute inset-0 size-full bg-transparent mix-blend-multiply [filter:contrast(1.18)_brightness(1.12)] ${isFileSharing ? 'object-contain' : 'object-cover'}`}
+                className="relative h-full w-full bg-transparent object-contain mix-blend-multiply [filter:contrast(1.18)_brightness(1.12)]"
                 autoPlay
                 loop
                 muted
